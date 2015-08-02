@@ -30,11 +30,6 @@
 </div>
 <div class="center">
   <div class="sidebyside" style="text-align:right">
-    <button id="copy_button" class="button" onclick="copyButton()">
-      Copy and Paste</button>
-    <div id="copy_info" class="info">
-      Press Control-C to copy text.<br>(Command-C on Mac.)
-    </div>
   </div>
   <div class="sidebyside">
     <button id="email_button" class="button" onclick="emailButton()">
@@ -230,15 +225,6 @@ function createEmail() {
   var body = encodeURI(final_transcript.substring(n + 1));
   window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
 }
-function copyButton() {
-  if (recognizing) {
-    recognizing = false;
-    recognition.stop();
-  }
-  copy_button.style.display = 'none';
-  copy_info.style.display = 'inline-block';
-  showInfo('');
-}
 function emailButton() {
   if (recognizing) {
     create_email = true;
@@ -288,9 +274,7 @@ function showButtons(style) {
     return;
   }
   current_style = style;
-  copy_button.style.display = style;
   email_button.style.display = style;
-  copy_info.style.display = 'none';
   email_info.style.display = 'none';
 }
 </script>
